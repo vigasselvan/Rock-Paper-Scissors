@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    background: url(./img/game_background.svg);
+    background-repeat: no-repeat; /* Prevents image repetition */
+    background-size: cover; /* Covers the entire background */
+    background-position: center center; /* Centers the image */
+    height: 100vh;
+}
+
+.heading{
+    font-size: 46px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.description{
+    font-size: 24px;
+    margin-top: 10px;
+    font-weight: 700;
+}

@@ -12,47 +12,72 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="heading">Rock-Paper-Scissors</h1>
-    <p class="description">The Game</p>
+    <div class="head_section">
+        <h1 class="heading">Rock-Paper-Scissors</h1>
+        <p class="description">The Game</p>
+    </div>
+    
 
     <div class="output_section">
         <div class="left_sec">
-            <img src="" id="userSelection" />
-            <p>YOU</p>
-            <p>SCORE: <span id="userScore">0</span></p>
+            <img src="./img/btn_img/rock_img-removebg-preview.png" id="userSelection" class="selected_option" />
+            <div class="score_card">
+                <p>YOU</p>
+                <p>SCORE: <span id="userScore">0</span></p>
+            </div>
         </div>
         <div class="mid_sec">
-            <img src="" />
+            <img class="question_img" src="./img/question_svg.svg" />
             <p>Who Wins ?</p>
         </div>
         <div class="right_sec">
-            <img src="" id="computerSelection" />
-            <p>Computer</p>
-            <p>SCORE: <span id="computerScore">0</span></p>
+            <img src="./img/btn_img/scissors_img-removebg-preview.png" id="computerSelection" class="selected_option" />
+           <div class="score_card">
+                <p>COMPUTER</p>
+                <p>SCORE: <span id="computerScore">0</span></p>
+            </div>
         </div>
     </div>
 
-    <div class="final_output">
+    <div class="final_result_section">
         <h1>You <span id="user_result"></span></h1>
         <p>Score: <span id="userScore">0</span></p>
+        <button id="play_again_btn">Play Again ↺</button>
     </div>    
 
     <div class="option_section">
         <div class="options">
             <div>
-                <img src="./img/rock_img.png" alt="rock image" />
+                <input
+                    class="options_button"
+                    type="image"
+                    id="image"
+                    alt="rock image"
+                    src="./img/btn_img/rock_img-removebg-preview.png" 
+                />
             </div>
             <div>
-                <img src="./img/paper_img.png" alt="paper image" />
+                <input
+                    class="options_button"
+                    type="image"
+                    id="image"
+                    alt="paper image"
+                    src="./img/btn_img/paper_img-removebg-preview.png" 
+                />
             </div>
             <div>
-                <img src="./img/scissors_img.png" alt="scissors image" />
+                <input
+                    class="options_button"
+                    type="image"
+                    id="scissors_img"
+                    alt="scissors image"
+                    src="./img/btn_img/scissors_img-removebg-preview.png" 
+                />
             </div>
         </div>
         <p>Choose your move</p>
     </div>
 
-    <button id="play_again_btn">Play Again</button>  
-
+      
 </body>
 </html>

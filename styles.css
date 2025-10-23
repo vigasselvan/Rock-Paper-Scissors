@@ -30,7 +30,7 @@ body{
     color: #3C6E71;
 }
 
-.output_section{
+#output_section{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,6 +60,13 @@ body{
     color: #3C6E71;
 }
 
+.score{
+    border: 1px solid #00A8E8;
+    border-radius: 0.3rem;
+    background-color: #F4F8FC;
+    padding: 0.25rem 0;
+}
+
 .mid_sec{
     display: flex;
     flex-direction: column;
@@ -71,8 +78,12 @@ body{
     margin: 6px 0;
 }
 
-.final_result_section{
+#final_result_section{
     display: none;
+}
+
+h1{
+    margin: 0.5rem 0;
 }
 
 .option_section{

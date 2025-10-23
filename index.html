@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
-    <script src="./script.js"></script> 
+    <script src="./script.js" defer></script> 
+    <link rel="shortcut icon" href="">
     <title>Rock-Paper-Scissors</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,12 +19,12 @@
     </div>
     
 
-    <div class="output_section">
+    <div id="output_section">
         <div class="left_sec">
             <img src="./img/btn_img/rock_img-removebg-preview.png" id="userSelection" class="selected_option" />
             <div class="score_card">
                 <p>YOU</p>
-                <p>SCORE: <span id="userScore">0</span></p>
+                <p class="score">SCORE: <span id="userScore">0</span></p>
             </div>
         </div>
         <div class="mid_sec">
@@ -34,14 +35,14 @@
             <img src="./img/btn_img/scissors_img-removebg-preview.png" id="computerSelection" class="selected_option" />
            <div class="score_card">
                 <p>COMPUTER</p>
-                <p>SCORE: <span id="computerScore">0</span></p>
+                <p class="score">SCORE: <span id="computerScore">0</span></p>
             </div>
         </div>
     </div>
 
-    <div class="final_result_section">
-        <h1>You <span id="user_result"></span></h1>
-        <p>Score: <span id="userScore">0</span></p>
+    <div id="final_result_section">
+        <h1><span id="user_result"></span></h1>
+        <p><span id="userScore">Score: 0</span></p>
         <button id="play_again_btn">Play Again ↺</button>
     </div>    
 

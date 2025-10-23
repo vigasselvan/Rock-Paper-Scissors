@@ -67,7 +67,13 @@ function playRound(humanChoice, computerChoice){
 }
 
 function playGame(){
-    for(let i = 0; i < 5; i++){
+    
+    const outputSec = document.getElementById("output_section");
+    const resultSec = document.getElementById("final_result_section");
+    const userResult = document.getElementById("user_result");
+    const userFinalScore = document.getElementById("userScore");
+
+    for(let i = 0; i < 2; i++){
         let humanChoice = getHumanChoice();
         
         let computerChoice = getComputerChoice();
@@ -75,13 +81,22 @@ function playGame(){
         playRound(humanChoice, computerChoice);
     }
 
+    outputSec.style.display = "none";
+    resultSec.style.display = "block";
+    console.log("score computed: " + userFinalScore.textContent)
+    userFinalScore.textContent = `Your Score: ${humanScore}`;
+
     if(humanScore > computerScore){
         console.log("Congradulations, You Won!");
+        userResult.textContent = "Congradulations, You Won!";
     }else if(humanScore < computerScore){
         console.log("Sorry, you lost in overall points!");
+        userResult.textContent = "Sorry, you lost in overall points!";
     }else if(humanScore === computerScore){
         console.log("Oops! its a tie");
+        userResult.textContent = "Oops! its a tie";
     }
+    
 }
 
-// playGame();
+playGame();

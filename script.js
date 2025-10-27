@@ -17,28 +17,54 @@ function getComputerChoice(){
     return choice;
 }
 
-function getHumanChoice(){
+function getHumanChoice(choiceVal){
     console.log("Choose from the below choices: \n1.Rock \n2.Paper \n3.Scissors");
 
     const userSelection = document.getElementById("userSelection");
 
-    let choiceVal = Number(prompt("Enter number: "));
     let humanChoice;
+    
+        switch(choiceVal){
+            case 1: humanChoice = "rock";
+                    userSelection.src = './img/btn_img/rock_img-removebg-preview.png';
+                    break;
+            case 2: humanChoice = "paper";
+                    userSelection.src = './img/btn_img/paper_img-removebg-preview.png';
+                    break;
+            case 3: humanChoice = "scissors";
+                    userSelection.src = './img/btn_img/scissors_img-removebg-preview.png';
+                    break;
+            default: console.log("Please enter the correct option!");
+        }
+        
+    playGame(humanChoice);
+}
 
-    switch(choiceVal){
-        case 1: humanChoice = "rock";
-                userSelection.src = './img/btn_img/rock_img-removebg-preview.png';
-                break;
-        case 2: humanChoice = "paper";
-                userSelection.src = './img/btn_img/paper_img-removebg-preview.png';
-                break;
-        case 3: humanChoice = "scissors";
-                userSelection.src = './img/btn_img/scissors_img-removebg-preview.png';
-                break;
-        default: console.log("Please enter the correct option!");
+function buttonPressed(){
+    const inputRock = document.getElementById('rock_image');
+    const inputPaper = document.getElementById('paper_image');
+    const inputScissors = document.getElementById('scissors_image');
+
+    if (inputRock) { // Check if element exists before adding listener
+        inputRock.addEventListener('click', function(event) {
+            console.log('Rock was clicked:', event.target);
+            getHumanChoice(1);
+        });
     }
-
-    return humanChoice;
+    
+    if(inputPaper) {
+        inputPaper.addEventListener('click', function(event) {
+            console.log('paper was clicked:', event.target);
+            getHumanChoice(2);
+        });
+    }
+    
+    if (inputScissors) {
+        inputScissors.addEventListener('click', function(event) {
+            console.log('scissors was clicked:', event.target);
+            getHumanChoice(3);
+        });
+    }
 }
 
 function reload(){
@@ -47,11 +73,14 @@ function reload(){
 
 let humanScore = 0; 
 let computerScore = 0;
+let currRound = 0;
 
 function playRound(humanChoice, computerChoice){
     
     const userCurrScore = document.getElementsByClassName("userScore");
-    const computerCurrScore = document.getElementById("computerScore");
+    const computerCurrScore = document.getElementById("compScore");
+
+    console.log("human: " + humanChoice + ", computer: " + computerChoice);
 
     if(humanChoice == computerChoice){
         console.log("Draw! Both have choosen same");
@@ -86,39 +115,56 @@ function playRound(humanChoice, computerChoice){
     for(let i = 0; i < userCurrScore.length; i++){
         userCurrScore[i].textContent = `SCORE: ${humanScore}`;
     }
-    computerCurrScore.textContent = `SCORE: ${computerScore}`;
+    computerCurrScore.textContent = `SCORE: ${computerScore}`;     
 
 }
 
-function playGame(){
+function playGame(humanChoice){
     
     const outputSec = document.getElementById("output_section");
     const resultSec = document.getElementById("final_result_section");
     const userResult = document.getElementById("user_result");
+    const optionSec = document.getElementById('option_section');
+    const round = document.getElementById("roundNo");
 
-    for(let i = 0; i < 2; i++){
-        let humanChoice = getHumanChoice();
-        
+    if(currRound < 5){
         let computerChoice = getComputerChoice();
-
+        
         playRound(humanChoice, computerChoice);
     }
 
-    if(humanScore > computerScore){
-        console.log("Congradulations, You Won!");
-        userResult.textContent = "Congradulations, You Won!🎉";
-    }else if(humanScore < computerScore){
-        console.log("Sorry, you lost in overall points!");
-        userResult.textContent = "Sorry, you lost in overall points!😥";
-        userResult.style.color = "#EF233C";
-    }else if(humanScore === computerScore){
-        console.log("Oops! its a tie");
-        userResult.textContent = "Oops! its a tie";
-        userResult.style.color = "#FFD670";
+    // for(let i = 0; i < 2; i++){
+    //     let humanChoice = getHumanChoice();
+        
+    //     let computerChoice = getComputerChoice();
+
+    //     round.textContent = i+1;
+
+    //     playRound(humanChoice, computerChoice);
+    // }
+
+    if(currRound >= 4){
+        if(humanScore > computerScore){
+            console.log("Congradulations, You Won!");
+            userResult.textContent = "Congradulations, You Won!🎉";
+        }else if(humanScore < computerScore){
+            console.log("Sorry, you lost in overall points!");
+            userResult.textContent = "Sorry, you lost in overall points!😥";
+            userResult.style.color = "#EF233C";
+        }else if(humanScore === computerScore){
+            console.log("Oops! its a tie");
+            userResult.textContent = "Oops! its a tie";
+            userResult.style.color = "#FFD670";
+        }
+        resultSec.style.display = "block";
+        optionSec.style.display = "none";
     }
+    
+    currRound++;
+    round.textContent = currRound+1;
 
     // outputSec.style.display = "none";
-    resultSec.style.display = "block";
+    
 }
 
-playGame();
+// playGame();

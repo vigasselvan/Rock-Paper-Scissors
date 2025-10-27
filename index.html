@@ -35,7 +35,7 @@
             <img src="./img/btn_img/scissors_img-removebg-preview.png" id="computerSelection" class="selected_option" />
            <div class="score_card">
                 <p>COMPUTER</p>
-                <p class="score">SCORE: <span id="computerScore">0</span></p>
+                <p class="score">SCORE: <span id="compScore">0</span></p>
             </div>
         </div>
     </div>
@@ -46,33 +46,38 @@
         <button id="play_again_btn" onclick="reload()">Play Again ↺</button>
     </div>    
 
-    <div class="option_section">
+    <h2 class="round">ROUND: <span id="roundNo">1</span></h2>
+
+    <div id="option_section">
         <div class="options">
             <div>
                 <input
                     class="options_button"
                     type="image"
-                    id="image"
+                    id="rock_image"
                     alt="rock image"
                     src="./img/btn_img/rock_img-removebg-preview.png" 
+                    onclick="buttonPressed()"
                 />
             </div>
             <div>
                 <input
                     class="options_button"
                     type="image"
-                    id="image"
+                    id="paper_image"
                     alt="paper image"
                     src="./img/btn_img/paper_img-removebg-preview.png" 
+                    onclick="buttonPressed()"
                 />
             </div>
             <div>
                 <input
                     class="options_button"
                     type="image"
-                    id="scissors_img"
+                    id="scissors_image"
                     alt="scissors image"
                     src="./img/btn_img/scissors_img-removebg-preview.png" 
+                    onclick="buttonPressed()"
                 />
             </div>
         </div>

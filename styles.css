@@ -56,7 +56,7 @@ body{
 }
 
 .userScore, 
-#computerScore{
+#compScore{
     color: #3C6E71;
 }
 
@@ -86,7 +86,7 @@ h1{
     margin: 0.5rem 0;
 }
 
-.option_section{
+#option_section{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -109,7 +109,7 @@ h1{
     transform: translateY(-5px);
 }
 
-.option_section p{
+#option_section p{
     color: #3C6E71;
     background-color: #F4F8FC;
     padding: 0.5rem 2rem;
@@ -137,6 +137,11 @@ h1{
   background-color: #0274a1;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+
+.round{
+    color: #3C6E71;
+    margin-bottom: 0;
 }
 
 #user_result{

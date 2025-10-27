@@ -24,7 +24,7 @@
             <img src="./img/btn_img/rock_img-removebg-preview.png" id="userSelection" class="selected_option" />
             <div class="score_card">
                 <p>YOU</p>
-                <p class="score">SCORE: <span id="userScore">0</span></p>
+                <p class="score"><span class="userScore">SCORE: 0</span></p> <!-- made changes in class name -->
             </div>
         </div>
         <div class="mid_sec">
@@ -42,8 +42,8 @@
 
     <div id="final_result_section">
         <h1><span id="user_result"></span></h1>
-        <p><span id="userScore">Score: 0</span></p>
-        <button id="play_again_btn">Play Again ↺</button>
+        <p><span class="userScore">SCORE: 0</span></p>
+        <button id="play_again_btn" onclick="reload()">Play Again ↺</button>
     </div>    
 
     <div class="option_section">

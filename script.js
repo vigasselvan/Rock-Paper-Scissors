@@ -1,3 +1,5 @@
+buttonPressed();
+
 function getComputerChoice(){
     const computerSelection = document.getElementById("computerSelection");
     let randomVal = Math.random()*100;
@@ -40,40 +42,41 @@ function getHumanChoice(choiceVal){
     playGame(humanChoice);
 }
 
+
 function buttonPressed(){
     const inputRock = document.getElementById('rock_image');
     const inputPaper = document.getElementById('paper_image');
     const inputScissors = document.getElementById('scissors_image');
 
-    if (inputRock) { // Check if element exists before adding listener
         inputRock.addEventListener('click', function(event) {
             console.log('Rock was clicked:', event.target);
+            console.log("Clicked Rock!");
+            event.preventDefault(); 
             getHumanChoice(1);
         });
-    }
-    
-    if(inputPaper) {
+
         inputPaper.addEventListener('click', function(event) {
             console.log('paper was clicked:', event.target);
+            console.log("Clicked Paper!");
             getHumanChoice(2);
         });
-    }
     
-    if (inputScissors) {
         inputScissors.addEventListener('click', function(event) {
             console.log('scissors was clicked:', event.target);
+            console.log("Clicked Scissors!");
             getHumanChoice(3);
         });
-    }
-}
 
-function reload(){
-    window.location.reload(true);
 }
 
 let humanScore = 0; 
 let computerScore = 0;
 let currRound = 0;
+
+function reload(){
+    currRound = 0;
+    window.location.reload(true);
+}
 
 function playRound(humanChoice, computerChoice){
     
@@ -121,29 +124,21 @@ function playRound(humanChoice, computerChoice){
 
 function playGame(humanChoice){
     
-    const outputSec = document.getElementById("output_section");
     const resultSec = document.getElementById("final_result_section");
     const userResult = document.getElementById("user_result");
     const optionSec = document.getElementById('option_section');
     const round = document.getElementById("roundNo");
+    const fullRound = document.getElementsByClassName("round");
 
     if(currRound < 5){
         let computerChoice = getComputerChoice();
-        
+
         playRound(humanChoice, computerChoice);
     }
 
-    // for(let i = 0; i < 2; i++){
-    //     let humanChoice = getHumanChoice();
-        
-    //     let computerChoice = getComputerChoice();
+    console.log(currRound);
 
-    //     round.textContent = i+1;
-
-    //     playRound(humanChoice, computerChoice);
-    // }
-
-    if(currRound >= 4){
+    if(currRound >= 5){
         if(humanScore > computerScore){
             console.log("Congradulations, You Won!");
             userResult.textContent = "Congradulations, You Won!🎉";
@@ -158,13 +153,11 @@ function playGame(humanChoice){
         }
         resultSec.style.display = "block";
         optionSec.style.display = "none";
+        fullRound[0].style.display = "none";
     }
     
-    currRound++;
-    round.textContent = currRound+1;
-
-    // outputSec.style.display = "none";
-    
+    currRound += 1;
+    round.textContent = currRound;
 }
 
 // playGame();

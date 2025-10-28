@@ -1,4 +1,4 @@
-buttonPressed();
+// buttonPressed();
 
 function getComputerChoice(){
     const computerSelection = document.getElementById("computerSelection");
@@ -43,31 +43,19 @@ function getHumanChoice(choiceVal){
 }
 
 
-function buttonPressed(){
-    const inputRock = document.getElementById('rock_image');
-    const inputPaper = document.getElementById('paper_image');
-    const inputScissors = document.getElementById('scissors_image');
+function buttonPressed(event) {
+  const clickedImage = event.target;  // which input image was clicked
+  console.log("Clicked image:", clickedImage.id);
 
-        inputRock.addEventListener('click', function(event) {
-            console.log('Rock was clicked:', event.target);
-            console.log("Clicked Rock!");
-            event.preventDefault(); 
-            getHumanChoice(1);
-        });
-
-        inputPaper.addEventListener('click', function(event) {
-            console.log('paper was clicked:', event.target);
-            console.log("Clicked Paper!");
-            getHumanChoice(2);
-        });
-    
-        inputScissors.addEventListener('click', function(event) {
-            console.log('scissors was clicked:', event.target);
-            console.log("Clicked Scissors!");
-            getHumanChoice(3);
-        });
-
+  if (clickedImage.id === 'rock_image') {
+    getHumanChoice(1);
+  } else if (clickedImage.id === 'paper_image') {
+    getHumanChoice(2);
+  } else if (clickedImage.id === 'scissors_image') {
+    getHumanChoice(3);
+  }
 }
+
 
 let humanScore = 0; 
 let computerScore = 0;

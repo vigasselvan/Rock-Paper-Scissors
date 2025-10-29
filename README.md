@@ -1,10 +1,14 @@
 # Rock-Paper-Scissors
-Rock Paper Scissors game built using JS
+Rock Paper Scissors game built using Vanilla JS.
 
 Steps to play the game:
-1. Open console in browser by: right click on screen, then select "Inspect".
-2. Select "console" tab in the newly opened panel.
-3. You will be given 3 options to select using numbers: 1,2 and 3. Select your option for the current round.
-4. This game contains 5 rounds, so you will be asked to enter option 5 times.
-5. Finally the Winner will be displayed in the Console tab.
-6. To play once more, reload the page.
+1. Game is [Live](https://vigasselvan.github.io/Rock-Paper-Scissors/).
+2. You are given 3 choices: select your option for current round, for winning each round, +1 point. 
+3. After 5 Rounds, Result of yours will be shown.
+4. Choose "Play again" button at bottom to restart the game.
+
+>[!NOTE]
+> Rock Wins Scissors, Paper Wins Rock and Scissors Wins Paper.
+
+Issues and Learnings:
+1. Multiple event handlers in a function and calling that funtion multiple times leads to leaving many undeleted event handlers.Here when an event happens once, all the event handler executes. Therefore, removed the event handlers and replaced them with event.target.id to find where the event happened and gave seperate function for each.

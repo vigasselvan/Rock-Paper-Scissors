@@ -1,5 +1,3 @@
-// buttonPressed();
-
 function getComputerChoice(){
     const computerSelection = document.getElementById("computerSelection");
     let randomVal = Math.random()*100;
@@ -147,5 +145,3 @@ function playGame(humanChoice){
     currRound += 1;
     round.textContent = currRound;
 }
-
-// playGame();
